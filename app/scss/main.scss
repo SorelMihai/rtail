@@ -53,6 +53,10 @@ body {
   min-height: 100vh;
   font-family: $font-family;
   font-size: 16px;
+
+  &.resizing {
+    user-select: none;
+  }
 }
 
 header {
@@ -92,10 +96,21 @@ header {
 }
 
 .sidebar {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 230px;
   font-size: 16px;
+
+  .resize-handler {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 10px;
+    height: 20px;
+    background: red;
+    cursor: resize;
+  }
 
   .search-box {
     display: flex;
