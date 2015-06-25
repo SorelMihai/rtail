@@ -166,12 +166,6 @@ angular
       ctrl.favorites = favorites || {}
     })
 
-    $localForage.getItem('activeStream').then(function (activeStream) {
-      if (!activeStream) return
-      console.info('%s: restoring session', activeStream)
-      ctrl.selectStream(activeStream)
-    })
-
     $localForage.getItem('streamDirection').then(function (streamDirection) {
       ctrl.streamDirection = undefined === streamDirection ? true : streamDirection
     })
@@ -181,4 +175,10 @@ angular
      */
 
     ctrl.loaded = true
+
+    /**
+     * Select default stream for the demo
+     */
+
+    ctrl.selectStream('rtail.org')
   })
